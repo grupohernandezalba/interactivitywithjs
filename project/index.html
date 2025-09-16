@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gallery</title>
-    <link href="dist/css/lightbox.min.css" rel="stylesheet" />
+    <link href="dist/css/lightbox.min.css" rel="stylesheet">
     <style>
 
     body{
@@ -93,45 +93,43 @@
     </header>
 
     <main>
-        <section>
-            <div id="gallery">
-                <div id="mainImage">
-                    Hover over an image to display the alt text.
+        <div id="gallery">
+            <div id="mainImage">
+                Hover over an image to display the alt text.
+            </div>
+            <div class="items" style="display: flex; flex-wrap: wrap;">
+                <div class="item">
+                    <a href="img/image1.webp" data-lightbox="image-1" data-title="Beach 1">
+                        <img class="preview" alt="Beach 1" src="img/image1.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                    </a>
                 </div>
-                <div class="items" style="display: flex; flex-wrap: wrap;">
-                    <div class="item">
-                        <a href="img/image1.webp" data-lightbox="image-1" data-title="Beach 1">
-                            <img class="preview" alt="Beach 1" src="img/image1.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="img/image2.webp" data-lightbox="image-2" data-title="Beach 2">
-                            <img class="preview" alt="Beach 2" src="img/image2.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="img/image3.webp" data-lightbox="image-3" data-title="Beach 3">
-                            <img class="preview" alt="Beach 3" src="img/image3.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="img/image4.webp" data-lightbox="image-4" data-title="Beach 4">
-                            <img class="preview" alt="Beach 4" src="img/image4.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="img/image5.webp" data-lightbox="image-5" data-title="Beach 5">
-                            <img class="preview" alt="Beach 2" src="img/image5.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="img/image5.webp" data-lightbox="image-5" data-title="Beach 5">
-                            <img class="preview" alt="Beach 3" src="img/image6.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
-                        </a>
-                    </div>
+                <div class="item">
+                    <a href="img/image2.webp" data-lightbox="image-2" data-title="Beach 2">
+                        <img class="preview" alt="Beach 2" src="img/image2.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="img/image3.webp" data-lightbox="image-3" data-title="Beach 3">
+                        <img class="preview" alt="Beach 3" src="img/image3.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="img/image4.webp" data-lightbox="image-4" data-title="Beach 4">
+                        <img class="preview" alt="Beach 4" src="img/image4.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="img/image5.webp" data-lightbox="image-5" data-title="Beach 5">
+                        <img class="preview" alt="Beach 2" src="img/image5.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="img/image5.webp" data-lightbox="image-5" data-title="Beach 5">
+                        <img class="preview" alt="Beach 3" src="img/image6.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>
