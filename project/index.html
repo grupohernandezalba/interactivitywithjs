@@ -100,32 +100,32 @@
             <div class="items" style="display: flex; flex-wrap: wrap;">
                 <div class="item">
                     <a href="img/image1.webp" data-lightbox="image-1" data-title="Beach 1">
-                        <img class="preview" alt="Beach 1" src="img/image1.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        <img onFocus="sendMessageFocus(this)" onBlur="sendMessageBlur(this)" class="preview" alt="Beach 1" src="img/image1.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
                     </a>
                 </div>
                 <div class="item">
                     <a href="img/image2.webp" data-lightbox="image-2" data-title="Beach 2">
-                        <img class="preview" alt="Beach 2" src="img/image2.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        <img onFocus="sendMessageFocus(this)" onBlur="sendMessageBlur(this)" class="preview" alt="Beach 2" src="img/image2.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
                     </a>
                 </div>
                 <div class="item">
                     <a href="img/image3.webp" data-lightbox="image-3" data-title="Beach 3">
-                        <img class="preview" alt="Beach 3" src="img/image3.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        <img onFocus="sendMessageFocus(this)" onBlur="sendMessageBlur(this)" class="preview" alt="Beach 3" src="img/image3.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
                     </a>
                 </div>
                 <div class="item">
                     <a href="img/image4.webp" data-lightbox="image-4" data-title="Beach 4">
-                        <img class="preview" alt="Beach 4" src="img/image4.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        <img onFocus="sendMessageFocus(this)" onBlur="sendMessageBlur(this)" class="preview" alt="Beach 4" src="img/image4.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
                     </a>
                 </div>
                 <div class="item">
                     <a href="img/image5.webp" data-lightbox="image-5" data-title="Beach 5">
-                        <img class="preview" alt="Beach 2" src="img/image5.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        <img onFocus="sendMessageFocus(this)" onBlur="sendMessageBlur(this)" class="preview" alt="Beach 2" src="img/image5.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
                     </a>
                 </div>
                 <div class="item">
                     <a href="img/image5.webp" data-lightbox="image-5" data-title="Beach 5">
-                        <img class="preview" alt="Beach 3" src="img/image6.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        <img onFocus="sendMessageFocus(this)" onBlur="sendMessageBlur(this)" class="preview" alt="Beach 3" src="img/image6.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
                     </a>
                 </div>
             </div>
@@ -142,6 +142,14 @@
         let mainImage = document.getElementById("mainImage");
         let imagesList = ['img/image1.webp','img/image2.webp','img/image3.webp','img/image4.webp','img/image5.webp','img/image6.webp']
 
+        function sendMessageFocus(element){
+            console.log("You have been selected image: " + element.src);
+        }
+
+        function sendMessageBlur(element){
+            console.log("You have been leaving image: " + element.src);
+        }
+
 
         function setKeyboardBehavior(){
             let currentImages = document.querySelectorAll('.preview');
@@ -151,7 +159,6 @@
                 currentImages[i].setAttribute("tabindex",i);
             }
         }
-
 
         let upDate = (element) => {
             let imageUrl = element.src;
