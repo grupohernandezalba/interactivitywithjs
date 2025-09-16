@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gallery</title>
+    <link href="dist/css/lightbox.min.css" rel="stylesheet" />
+    <style>
+
+    body{
+		margin: 2%;
+		background-color: #efefef;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #mainImage{
+        line-height:100px;
+        text-align:center;
+        width: 300px;
+        height: 480px;
+        border:1px solid gray;
+        margin:0 auto;
+        margin-bottom:10px;
+        background-color: #8e68ff;
+        font-size: 150%;
+        background-size: contain;
+        background-size: cover;
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+
+    li {
+        list-style: none;
+        background-color: #8e68ff;
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    li:hover {
+        background-color: #b19eeb ;
+        cursor: pointer;
+    }
+
+    #gallery {
+        display:grid;
+        grid-template-columns: auto auto auto;
+        gap: 20px;
+    }
+
+    .item {
+        flex: 1 1 33.33%;   
+    }
+  
+    .preview {
+        width:90%;
+        border: 1px solid gray;
+        filter: brightness(70%); 
+        transition: filter 0.3s ease; 
+    }
+
+    .preview:hover {
+        filter: brightness(100%); 
+    }
+
+    img:focus {
+        border: 3px solid #8e68ff;
+    }
+</style>
+</head>
+<body onload="setKeyboardBehavior()">
+    
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <p>Gallery</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div id="gallery">
+                <div id="mainImage">
+                    Hover over an image to display the alt text.
+                </div>
+                <div class="items" style="display: flex; flex-wrap: wrap;">
+                    <div class="item">
+                        <a href="img/image1.webp" data-lightbox="image-1" data-title="Beach 1">
+                            <img class="preview" alt="Beach 1" src="img/image1.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="img/image2.webp" data-lightbox="image-2" data-title="Beach 2">
+                            <img class="preview" alt="Beach 2" src="img/image2.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="img/image3.webp" data-lightbox="image-3" data-title="Beach 3">
+                            <img class="preview" alt="Beach 3" src="img/image3.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="img/image4.webp" data-lightbox="image-4" data-title="Beach 4">
+                            <img class="preview" alt="Beach 4" src="img/image4.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="img/image5.webp" data-lightbox="image-5" data-title="Beach 5">
+                            <img class="preview" alt="Beach 2" src="img/image5.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="img/image5.webp" data-lightbox="image-5" data-title="Beach 5">
+                            <img class="preview" alt="Beach 3" src="img/image6.webp" onmouseover="upDate(this)" onmouseleave="unDo();">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Gallery Project</p>
+    </footer>
+
+
+    <script>
+
+        let mainImage = document.getElementById("mainImage");
+        let imagesList = ['img/image1.webp','img/image2.webp','img/image3.webp','img/image4.webp','img/image5.webp','img/image6.webp']
+
+
+        function setKeyboardBehavior(){
+            let currentImages = document.querySelectorAll('.preview');
+            console.log('This message is showed at load');
+            for(let i = 0; i<= currentImages.length-1; i++){
+                
+                currentImages[i].setAttribute("tabindex",i);
+            }
+        }
+
+
+        let upDate = (element) => {
+            let imageUrl = element.src;
+            mainImage.innerHTML = element.alt;
+            mainImage.style.backgroundImage = "url('" + imageUrl + "')";
+        }
+
+        let unDo = () => {
+            let text = 'Hover over an image';
+            mainImage.innerHTML = text;
+            mainImage.style.backgroundImage = "none";
+        }
+
+    </script>
+
+    <script src="dist/js/lightbox-plus-jquery.js    "></script>
+
+    <script>
+        lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+        })
+    </script>
+</body>
+</html>
